@@ -1,0 +1,19 @@
+database:
+  url:
+    host: localhost
+    port: 5432
+    db: project
+    schema: catalog
+  credentials:
+    username: lazarev
+    password: 1234
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    change-log: classpath:db/liquibase-changelog.yml
+    default-schema: ${database.url.schema}
+    enabled: true
+    parameters:
+      schema: ${database.url.schema}
